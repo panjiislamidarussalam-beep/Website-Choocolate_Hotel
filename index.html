@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badminton Court - Sewa Lapangan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🏸 BADMINTON COURT</h1>
+        <p>Sewa Lapangan Badminton Mudah dan Cepat</p>
+    </header>
+
+    <nav>
+        <a href="#beranda">Beranda</a>
+        <a href="#sewa">Sewa Lapangan</a>
+        <a href="#jadwal">Jadwal Sewa</a>
+    </nav>
+
+    <main class="container" id="beranda">
+
+        <section class="hero card">
+            <h2>Main Badminton, Yuk!</h2>
+            <p>
+                Nikmati permainan badminton bersama teman
+                dengan lapangan yang nyaman.
+            </p>
+            <a href="#sewa" class="tombol-link">Pesan Lapangan</a>
+        </section>
+
+        <section class="card">
+            <h2>Daftar Lapangan</h2>
+
+            <div class="lapangan-container">
+                <div class="lapangan">
+                    <h3>Lapangan 1</h3>
+                    <p>Tarif: Rp50.000/jam</p>
+                    <p>Status: Tersedia</p>
+                </div>
+
+                <div class="lapangan">
+                    <h3>Lapangan 2</h3>
+                    <p>Tarif: Rp60.000/jam</p>
+                    <p>Status: Tersedia</p>
+                </div>
+
+                <div class="lapangan">
+                    <h3>Lapangan 3</h3>
+                    <p>Tarif: Rp50.000/jam</p>
+                    <p>Status: Tersedia</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" id="sewa">
+            <h2>Formulir Sewa Lapangan</h2>
+
+            <form id="formSewa">
+                <label for="nama">Nama Penyewa</label>
+                <input
+                    type="text"
+                    id="nama"
+                    placeholder="Masukkan nama Anda"
+                    required
+                >
+
+                <label for="lapangan">Pilih Lapangan</label>
+                <select id="lapangan" required>
+                    <option value="">-- Pilih Lapangan --</option>
+                    <option value="Lapangan 1" data-harga="50000">
+                        Lapangan 1 - Rp50.000/jam
+                    </option>
+                    <option value="Lapangan 2" data-harga="60000">
+                        Lapangan 2 - Rp60.000/jam
+                    </option>
+                    <option value="Lapangan 3" data-harga="50000">
+                        Lapangan 3 - Rp50.000/jam
+                    </option>
+                </select>
+
+                <label for="tanggal">Tanggal Sewa</label>
+                <input type="date" id="tanggal" required>
+
+                <label for="jam">Jam Mulai</label>
+                <select id="jam" required>
+                    <option value="">-- Pilih Jam --</option>
+                    <option value="08:00">08:00</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="20:00">20:00</option>
+                </select>
+
+                <label for="durasi">Durasi Sewa</label>
+                <select id="durasi" required>
+                    <option value="">-- Pilih Durasi --</option>
+                    <option value="1">1 Jam</option>
+                    <option value="2">2 Jam</option>
+                    <option value="3">3 Jam</option>
+                </select>
+
+                <button type="submit">Pesan Sekarang</button>
+            </form>
+        </section>
+
+        <section class="card" id="jadwal">
+            <h2>Daftar Pemesanan</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Lapangan</th>
+                            <th>Tanggal</th>
+                            <th>Jam</th>
+                            <th>Durasi</th>
+                            <th>Total Harga</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabelSewa">
+                        <tr>
+                            <td colspan="7">
+                                Belum ada pemesanan.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Badminton Court | Selamat Bermain!</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
