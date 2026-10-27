@@ -2,151 +2,156 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Badminton Court - Sewa Lapangan</title>
-    <link rel="stylesheet" href="Style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Harmoni</title>
+  <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 
-    <header>
-        <h1>BADMINTON CHAMPION</h1>
-        <p>Sewa Lapangan Badminton Mudah dan Cepat</p>
+  <!-- HALAMAN SELAMAT DATANG -->
+  <section id="welcomePage" class="welcome">
+    <div class="welcome-box">
+      <div class="welcome-icon"></div>
+      <h1>Selamat Datang Di</h1>
+      <h2>Hotel Coklat</h2>
+      <p>
+        Nikmati kenyamanan menginap di hotel kami dengan pelayanan terbaik.
+        Kami siap membuat pengalaman menginap Anda lebih menyenangkan.
+      </p>
+      <button id="enterButton" type="button">
+        Masuk ke Website →
+      </button>
+    </div>
+  </section>
+
+  <!-- HALAMAN UTAMA -->
+  <div id="mainWebsite" hidden>
+
+    <header class="navbar">
+      <h2>Hotel Coklat</h2>
+      <nav>
+        <a href="#beranda">Beranda</a>
+        <a href="#kamar">Kamar</a>
+        <a href="#pemesanan">Pemesanan</a>
+      </nav>
     </header>
 
-    <nav>
-        <a href="#beranda">Beranda</a>
-        <a href="#sewa">Sewa Lapangan</a>
-        <a href="#jadwal">Jadwal Sewa</a>
-    </nav>
+    <main>
+      <!-- BERANDA -->
+      <section id="beranda" class="hero">
+        <div>
+          <p class="subtitle">SELAMAT MENIKMATI LIBURAN ANDA DI TEMPAT KAMI</p>
+          <h1>Hotel Nyaman untuk Semua</h1>
+          <p>
+            Temukan kenyamanan, ketenangan, dan pelayanan
+            terbaik hanya di Hotel Coklat.
+          </p>
+          <a class="button-link" href="#kamar">Lihat Kamar</a>
+        </div>
+      </section>
 
-    <main class="container" id="beranda">
+      <!-- DAFTAR KAMAR -->
+      <section id="kamar" class="section">
+        <h2>Pilihan Kamar</h2>
+        <p class="section-desc">Pilih kamar sesuai kebutuhan Anda.</p>
 
-        <section class="hero card">
-            <h2>Main Badminton, Yuk!</h2>
-            <p>
-                Nikmati permainan badminton bersama teman
-                dengan lapangan yang nyaman.
-            </p>
-            <a href="#sewa" class="tombol-link">Pesan Lapangan</a>
-        </section>
+        <div class="room-container">
+          <article class="room-card">
+            <div class="room-icon"></div>
+            <h3>Kamar Standard/Biasa</h3>
+            <p>Kamar nyaman untuk satu atau dua orang.</p>
+            <strong>Rp250.000 / malam</strong>
+          </article>
 
-        <section class="card">
-            <h2>Daftar Lapangan</h2>
+          <article class="room-card">
+            <div class="room-icon"></div>
+            <h3>Kamar Elite</h3>
+            <p>Kamar lebih luas dengan fasilitas tambahan.</p>
+            <strong>Rp400.000 / malam</strong>
+          </article>
 
-            <div class="lapangan-container">
-                <div class="lapangan">
-                    <h3>Lapangan 1</h3>
-                    <p>Tarif: Rp50.000/jam</p>
-                    <p>Status: Tersedia</p>
-                </div>
+          <article class="room-card">
+            <div class="room-icon"></div>
+            <h3>Kamar VIP</h3>
+            <p>Kamar premium untuk pengalaman istimewa.</p>
+            <strong>Rp650.000 / malam</strong>
+          </article>
+        </div>
+      </section>
 
-                <div class="lapangan">
-                    <h3>Lapangan 2</h3>
-                    <p>Tarif: Rp60.000/jam</p>
-                    <p>Status: Tersedia</p>
-                </div>
+      <!-- FORM PEMESANAN -->
+      <section id="pemesanan" class="section booking-section">
+        <h2>Formulir Pemesanan</h2>
+        <p class="section-desc">
+          Isi data berikut untuk membuat pemesanan simulasi.
+        </p>
 
-                <div class="lapangan">
-                    <h3>Lapangan 3</h3>
-                    <p>Tarif: Rp50.000/jam</p>
-                    <p>Status: Tersedia</p>
-                </div>
-            </div>
-        </section>
+        <form id="bookingForm">
+          <label for="nama">Nama lengkap</label>
+          <input
+            type="text"
+            id="nama"
+            placeholder="Masukkan nama Anda"
+            required
+          >
 
-        <section class="card" id="sewa">
-            <h2>Formulir Sewa Lapangan</h2>
+          <label for="tipeKamar">Pilih kamar</label>
+          <select id="tipeKamar" required>
+            <option value="">-- Pilih tipe kamar --</option>
+            <option value="Standard">Kamar Standard - Rp250.000</option>
+            <option value="Deluxe">Kamar Deluxe - Rp400.000</option>
+            <option value="Suite">Kamar Suite - Rp650.000</option>
+          </select>
 
-            <form id="formSewa">
-                <label for="nama">Nama Penyewa</label>
-                <input
-                    type="text"
-                    id="nama"
-                    placeholder="Masukkan nama Anda"
-                    required
-                >
+          <label for="tanggal">Tanggal check-in</label>
+          <input type="date" id="tanggal" required>
 
-                <label for="lapangan">Pilih Lapangan</label>
-                <select id="lapangan" required>
-                    <option value="">-- Pilih Lapangan --</option>
-                    <option value="Lapangan 1" data-harga="50000">
-                        Lapangan 1 - Rp50.000/jam
-                    </option>
-                    <option value="Lapangan 2" data-harga="60000">
-                        Lapangan 2 - Rp60.000/jam
-                    </option>
-                    <option value="Lapangan 3" data-harga="50000">
-                        Lapangan 3 - Rp50.000/jam
-                    </option>
-                </select>
+          <label for="malam">Lama menginap</label>
+          <select id="malam" required>
+            <option value="1">1 malam</option>
+            <option value="2">2 malam</option>
+            <option value="3">3 malam</option>
+            <option value="4">4 malam</option>
+            <option value="5">5 malam</option>
+          </select>
 
-                <label for="tanggal">Tanggal Sewa</label>
-                <input type="date" id="tanggal" required>
+          <button type="submit">Pesan Kamar</button>
+        </form>
 
-                <label for="jam">Jam Mulai</label>
-                <select id="jam" required>
-                    <option value="">-- Pilih Jam --</option>
-                    <option value="08:00">08:00</option>
-                    <option value="09:00">09:00</option>
-                    <option value="10:00">10:00</option>
-                    <option value="11:00">11:00</option>
-                    <option value="13:00">13:00</option>
-                    <option value="14:00">14:00</option>
-                    <option value="15:00">15:00</option>
-                    <option value="16:00">16:00</option>
-                    <option value="17:00">17:00</option>
-                    <option value="18:00">18:00</option>
-                    <option value="19:00">19:00</option>
-                    <option value="20:00">20:00</option>
-                </select>
+        <p id="pesanStatus" role="status" aria-live="polite"></p>
+      </section>
 
-                <label for="durasi">Durasi Sewa</label>
-                <select id="durasi" required>
-                    <option value="">-- Pilih Durasi --</option>
-                    <option value="1">1 Jam</option>
-                    <option value="2">2 Jam</option>
-                    <option value="3">3 Jam</option>
-                </select>
-
-                <button type="submit">Pesan Sekarang</button>
-            </form>
-        </section>
-
-        <section class="card" id="jadwal">
-            <h2>Daftar Pemesanan</h2>
-
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama</th>
-                            <th>Lapangan</th>
-                            <th>Tanggal</th>
-                            <th>Jam</th>
-                            <th>Durasi</th>
-                            <th>Total Harga</th>
-                        </tr>
-                    </thead>
-
-                    <tbody id="tabelSewa">
-                        <tr>
-                            <td colspan="7">
-                                Belum ada pemesanan.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
+      <!-- TABEL PEMESANAN -->
+      <section class="section">
+        <h2>Daftar Pemesanan</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>Tipe Kamar</th>
+                <th>Check-in</th>
+                <th>Lama</th>
+                <th>Total Harga</th>
+              </tr>
+            </thead>
+            <tbody id="bookingList">
+              <tr id="emptyRow">
+                <td colspan="5">Belum ada pemesanan.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Badminton Court | Selamat Bermain!</p>
+      <p>&copy; <span id="tahun"></span> Hotel Coklat. Website latihan.</p>
     </footer>
 
-    <script src="script.js"></script>
+  </div>
+
+  <script src="Script.js"></script>
 </body>
 </html>

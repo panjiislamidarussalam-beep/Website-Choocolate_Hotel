@@ -1,103 +1,111 @@
 
-const form = document.getElementById("formSewa");
-const tabel = document.getElementById("tabelSewa");
+document.addEventListener("DOMContentLoaded", function () {
+  const welcomePage = document.getElementById("welcomePage");
+  const mainWebsite = document.getElementById("mainWebsite");
+  const enterButton = document.getElementById("enterButton");
+  const bookingForm = document.getElementById("bookingForm");
+  const bookingList = document.getElementById("bookingList");
+  const tanggalInput = document.getElementById("tanggal");
+  const pesanStatus = document.getElementById("pesanStatus");
 
-form.addEventListener("submit", function(event) {
+  // Harga setiap tipe kamar
+  const hargaKamar = {
+    Standard: 250000,
+    Deluxe: 400000,
+    Suite: 650000
+  };
+
+  // Menampilkan tahun saat ini
+  document.getElementById("tahun").textContent =
+    new Date().getFullYear();
+
+  // Mengatur tanggal minimum check-in ke hari ini
+  function tanggalHariIni() {
+    const sekarang = new Date();
+    const tahun = sekarang.getFullYear();
+    const bulan = String(sekarang.getMonth() + 1).padStart(2, "0");
+    const hari = String(sekarang.getDate()).padStart(2, "0");
+
+    return `${tahun}-${bulan}-${hari}`;
+  }
+
+  tanggalInput.min = tanggalHariIni();
+
+  // Tombol masuk ke halaman utama
+  enterButton.addEventListener("click", function () {
+    welcomePage.hidden = true;
+    mainWebsite.hidden = false;
+    window.scrollTo(0, 0);
+  });
+
+  // Format angka menjadi Rupiah
+  function formatRupiah(angka) {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      maximumFractionDigits: 0
+    }).format(angka);
+  }
+
+  // Memproses formulir pemesanan
+  bookingForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const nama = document.getElementById("nama").value.trim();
-    const pilihanLapangan = document.getElementById("lapangan");
-    const lapangan = pilihanLapangan.value;
-    const harga = Number(
-        pilihanLapangan.selectedOptions[0].dataset.harga
-    );
+    const tipeKamar = document.getElementById("tipeKamar").value;
+    const tanggal = tanggalInput.value;
+    const malam = Number(document.getElementById("malam").value);
 
-    const tanggal = document.getElementById("tanggal").value;
-    const jam = document.getElementById("jam").value;
-    const durasi = Number(document.getElementById("durasi").value);
-
-    // Memeriksa data formulir
-    if (!nama || !lapangan || !tanggal || !jam || !durasi) {
-        alert("Mohon lengkapi semua data!");
-        return;
+    // Memeriksa data
+    if (!nama || !hargaKamar[tipeKamar] || !tanggal) {
+      pesanStatus.textContent = "Mohon lengkapi semua data.";
+      pesanStatus.style.color = "#b91c1c";
+      return;
     }
 
-    // Memastikan tanggal tidak di masa lalu
-    const hariIni = new Date();
-    const tahun = hariIni.getFullYear();
-    const bulan = String(hariIni.getMonth() + 1).padStart(2, "0");
-    const hari = String(hariIni.getDate()).padStart(2, "0");
-    const tanggalHariIni = `${tahun}-${bulan}-${hari}`;
-
-    if (tanggal < tanggalHariIni) {
-        alert("Tanggal sewa tidak boleh di masa lalu!");
-        return;
+    if (tanggal < tanggalHariIni()) {
+      pesanStatus.textContent =
+        "Tanggal check-in tidak boleh sebelum hari ini.";
+      pesanStatus.style.color = "#b91c1c";
+      return;
     }
 
-    // Memeriksa bentrok jadwal lapangan
-    const pemesanan = Array.from(tabel.querySelectorAll("tr"))
-        .filter(row => row.cells.length === 7);
+    // Menghitung total biaya
+    const total = hargaKamar[tipeKamar] * malam;
 
-    const jamMulai = Number(jam.split(":")[0]);
-    const jamSelesai = jamMulai + durasi;
-
-    if (jamSelesai > 21) {
-        alert("Jam selesai maksimal pukul 21:00!");
-        return;
+    // Menghapus pesan belum ada pemesanan
+    const emptyRow = document.getElementById("emptyRow");
+    if (emptyRow) {
+      emptyRow.remove();
     }
 
-    for (const row of pemesanan) {
-        const lapanganLama = row.cells[2].textContent;
-        const tanggalLama = row.cells[3].textContent;
-        const jamLama = row.cells[4].textContent;
-        const durasiLama = Number(
-            row.cells[5].textContent.replace(" Jam", "")
-        );
+    // Membuat baris tabel dengan aman
+    const baris = document.createElement("tr");
 
-        if (lapanganLama === lapangan && tanggalLama === tanggal) {
-            const mulaiLama = Number(jamLama.split(":")[0]);
-            const selesaiLama = mulaiLama + durasiLama;
-
-            if (jamMulai < selesaiLama && jamSelesai > mulaiLama) {
-                alert("Jadwal bentrok! Silakan pilih jam lain.");
-                return;
-            }
-        }
-    }
-
-    // Menghitung total harga
-    const total = harga * durasi;
-
-    // Menghapus pesan jika belum ada pemesanan
-    if (
-        tabel.rows.length === 1 &&
-        tabel.rows[0].cells.length === 1
-    ) {
-        tabel.innerHTML = "";
-    }
-
-    // Memasukkan data ke tabel
-    const nomor = tabel.rows.length + 1;
-    const baris = tabel.insertRow();
-
-    const data = [
-        nomor,
-        nama,
-        lapangan,
-        tanggal,
-        jam,
-        durasi + " Jam",
-        "Rp" + total.toLocaleString("id-ID")
+    const dataPemesanan = [
+      nama,
+      "Kamar " + tipeKamar,
+      tanggal,
+      malam + " malam",
+      formatRupiah(total)
     ];
 
-    data.forEach(function(nilai) {
-        baris.insertCell().textContent = nilai;
+    dataPemesanan.forEach(function (isi) {
+      const sel = document.createElement("td");
+      sel.textContent = isi;
+      baris.appendChild(sel);
     });
 
-    alert(
-        "Pemesanan berhasil!\n" +
-        "Total biaya: Rp" + total.toLocaleString("id-ID")
-    );
+    bookingList.appendChild(baris);
 
-    form.reset();
+    pesanStatus.textContent =
+      "Pemesanan berhasil ditambahkan! Total: " +
+      formatRupiah(total);
+
+    pesanStatus.style.color = "#166534";
+
+    // Mengosongkan formulir setelah berhasil
+    bookingForm.reset();
+    tanggalInput.min = tanggalHariIni();
+  });
 });

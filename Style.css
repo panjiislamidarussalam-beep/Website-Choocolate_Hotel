@@ -1,204 +1,314 @@
 
+/* PENGATURAN DASAR */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f1f8f3;
-    color: #26352a;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #263238;
+  background: #f5f7f6;
+  line-height: 1.6;
 }
 
-header {
-    background-color: #087443;
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
+[hidden] {
+  display: none !important;
 }
 
-header h1 {
-    margin: 0 0 10px;
-}
-
-header p {
-    margin-bottom: 0;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    background-color: #064e32;
-    padding: 15px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #facc15;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    max-width: 1000px;
-    margin: 25px auto;
-    padding: 0 20px;
-}
-
-.card {
-    background-color: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 3px 10px #00000012;
-}
-
-h2 {
-    color: #087443;
-    margin-top: 0;
-}
-
-.hero {
-    text-align: center;
-    padding: 45px 20px;
-    background-color: #dcfce7;
-}
-
-.hero h2 {
-    font-size: 30px;
-}
-
-.tombol-link {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 22px;
-    background-color: #087443;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-}
-
-.tombol-link:hover {
-    background-color: #064e32;
-}
-
-.lapangan-container {
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
-}
-
-.lapangan {
-    flex: 1 1 200px;
-    padding: 20px;
-    border: 2px solid #bbf7d0;
-    border-radius: 10px;
-    background-color: #f0fdf4;
-}
-
-.lapangan h3 {
-    color: #087443;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-label {
-    font-weight: bold;
-    margin-top: 5px;
-}
-
+button,
 input,
-select,
-button {
-    width: 100%;
-    padding: 12px;
-    font-size: 15px;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
+select {
+  font: inherit;
 }
 
-input:focus,
-select:focus {
-    outline: 2px solid #16a34a;
+/* HALAMAN SELAMAT DATANG */
+.welcome {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  background: linear-gradient(135deg, #123c35, #27856c);
 }
 
-button {
-    margin-top: 10px;
-    background-color: #087443;
-    color: white;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
+.welcome-box {
+  max-width: 620px;
 }
 
-button:hover {
-    background-color: #064e32;
+.welcome-icon {
+  font-size: 75px;
+  margin-bottom: 10px;
 }
 
-.table-wrapper {
-    overflow-x: auto;
+.welcome h1 {
+  font-size: 40px;
+  margin: 8px 0;
+}
+
+.welcome h2 {
+  font-size: 28px;
+  margin: 0 0 16px;
+  color: #d6f5e8;
+}
+
+.welcome p {
+  margin-bottom: 28px;
+}
+
+.welcome button,
+.booking-section button {
+  padding: 13px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #e3b66d;
+  color: #26352e;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.welcome button:hover,
+.booking-section button:hover {
+  background: #f1cc8c;
+  transform: translateY(-2px);
+}
+
+/* NAVIGASI */
+.navbar {
+  background: #123c35;
+  color: white;
+  padding: 16px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.navbar h2 {
+  margin: 0;
+}
+
+.navbar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: #e3b66d;
+}
+
+/* BERANDA */
+.hero {
+  min-height: 350px;
+  padding: 65px 8%;
+  display: flex;
+  align-items: center;
+  color: white;
+  background: linear-gradient(120deg, #245b4d, #639b7c);
+}
+
+.hero > div {
+  max-width: 650px;
+}
+
+.hero h1 {
+  font-size: 38px;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+.subtitle {
+  color: #f5d69d;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.button-link {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  background: #e3b66d;
+  color: #26352e;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* BAGIAN KONTEN */
+.section {
+  padding: 45px 7%;
+  text-align: center;
+}
+
+.section h2 {
+  margin-bottom: 4px;
+  color: #174c3d;
+}
+
+.section-desc {
+  margin-top: 0;
+  color: #64716b;
+}
+
+/* KARTU KAMAR - FLEXBOX */
+.room-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 25px;
+}
+
+.room-card {
+  flex: 1 1 220px;
+  max-width: 340px;
+  padding: 25px 20px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: 0.2s;
+}
+
+.room-card:hover {
+  transform: translateY(-4px);
+}
+
+.room-icon {
+  font-size: 48px;
+}
+
+.room-card h3 {
+  color: #174c3d;
+}
+
+.room-card strong {
+  color: #9a6b22;
+}
+
+/* FORM PEMESANAN */
+.booking-section {
+  background: #eaf2ed;
+}
+
+#bookingForm {
+  max-width: 550px;
+  margin: 25px auto 0;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#bookingForm label {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+#bookingForm input,
+#bookingForm select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #cbd5ce;
+  border-radius: 6px;
+  background: white;
+}
+
+#bookingForm input:focus,
+#bookingForm select:focus {
+  outline: 2px solid #27856c;
+  border-color: transparent;
+}
+
+#bookingForm button {
+  margin-top: 12px;
+}
+
+#pesanStatus {
+  font-weight: bold;
+}
+
+/* TABEL */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 20px;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 650px;
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  background: white;
 }
 
 th,
 td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: center;
+  border: 1px solid #dce4de;
+  padding: 12px;
+  text-align: center;
 }
 
 th {
-    background-color: #087443;
-    color: white;
+  color: white;
+  background: #245b4d;
 }
 
-tr:nth-child(even) {
-    background-color: #f0fdf4;
+tbody tr:nth-child(even) {
+  background: #edf4ef;
 }
 
+/* FOOTER */
 footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #064e32;
-    color: white;
-    margin-top: 30px;
+  padding: 18px;
+  background: #123c35;
+  color: white;
+  text-align: center;
 }
 
+/* TAMPILAN HP */
 @media (max-width: 600px) {
-    nav {
-        gap: 15px;
-    }
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    .container {
-        padding: 0 12px;
-    }
+  .navbar nav {
+    justify-content: center;
+    gap: 12px;
+  }
 
-    .card {
-        padding: 18px;
-    }
+  .welcome h1 {
+    font-size: 31px;
+  }
 
-    .hero h2 {
-        font-size: 24px;
-    }
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .section {
+    padding: 35px 5%;
+  }
+
+  #bookingForm {
+    padding: 18px;
+  }
 }
