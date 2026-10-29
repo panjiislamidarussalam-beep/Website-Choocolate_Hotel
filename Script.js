@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Harga setiap tipe kamar
   const hargaKamar = {
-    Standard: 250000,
-    Deluxe: 400000,
-    Suite: 650000
+    Standar: 250000,
+    Elite: 400000,
+    VIP: 650000
   };
 
   // Menampilkan tahun saat ini

@@ -11,8 +11,8 @@ html {
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  color: #263238;
-  background: #f5f7f6;
+  color: #4b3621;
+  background: #f5eee4;
   line-height: 1.6;
 }
 
@@ -34,8 +34,8 @@ select {
   justify-content: center;
   padding: 24px;
   text-align: center;
-  color: rgb(255, 255, 255);
-  background: linear-gradient(135deg, #123c35, #27856c);
+  color: white;
+  background: linear-gradient(135deg, #3e2723, #795548, #a1887f);
 }
 
 .welcome-box {
@@ -55,20 +55,21 @@ select {
 .welcome h2 {
   font-size: 28px;
   margin: 0 0 16px;
-  color: #d6f5e8;
+  color: #efcfaa;
 }
 
 .welcome p {
   margin-bottom: 28px;
 }
 
+/* TOMBOL */
 .welcome button,
 .booking-section button {
   padding: 13px 24px;
   border: none;
   border-radius: 8px;
-  background: #e3b66d;
-  color: #26352e;
+  background: #c49a6c;
+  color: #3e2723;
   font-weight: bold;
   cursor: pointer;
   transition: 0.2s;
@@ -76,13 +77,13 @@ select {
 
 .welcome button:hover,
 .booking-section button:hover {
-  background: #f1cc8c;
+  background: #dfbd96;
   transform: translateY(-2px);
 }
 
 /* NAVIGASI */
 .navbar {
-  background: #123c35;
+  background: #3e2723;
   color: white;
   padding: 16px 7%;
   display: flex;
@@ -108,7 +109,7 @@ select {
 }
 
 .navbar a:hover {
-  color: #e3b66d;
+  color: #dfbd96;
 }
 
 /* BERANDA */
@@ -118,7 +119,7 @@ select {
   display: flex;
   align-items: center;
   color: white;
-  background: linear-gradient(120deg, #245b4d, #639b7c);
+  background: linear-gradient(120deg, #5d4037, #8d6e63, #bcaaa4);
 }
 
 .hero > div {
@@ -132,7 +133,7 @@ select {
 }
 
 .subtitle {
-  color: #f5d69d;
+  color: #f0d1a8;
   font-size: 13px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -143,10 +144,14 @@ select {
   margin-top: 12px;
   padding: 10px 20px;
   border-radius: 6px;
-  background: #e3b66d;
-  color: #26352e;
+  background: #d2ad82;
+  color: #3e2723;
   text-decoration: none;
   font-weight: bold;
+}
+
+.button-link:hover {
+  background: #e6c9a8;
 }
 
 /* BAGIAN KONTEN */
@@ -157,12 +162,12 @@ select {
 
 .section h2 {
   margin-bottom: 4px;
-  color: #174c3d;
+  color: #5d4037;
 }
 
 .section-desc {
   margin-top: 0;
-  color: #64716b;
+  color: #806957;
 }
 
 /* KARTU KAMAR - FLEXBOX */
@@ -180,12 +185,14 @@ select {
   padding: 25px 20px;
   border-radius: 12px;
   background: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0d0bd;
+  box-shadow: 0 4px 15px rgba(62, 39, 35, 0.12);
   transition: 0.2s;
 }
 
 .room-card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(62, 39, 35, 0.18);
 }
 
 .room-icon {
@@ -193,16 +200,16 @@ select {
 }
 
 .room-card h3 {
-  color: #174c3d;
+  color: #5d4037;
 }
 
 .room-card strong {
-  color: #9a6b22;
+  color: #996b3d;
 }
 
 /* FORM PEMESANAN */
 .booking-section {
-  background: #eaf2ed;
+  background: #e8d8c5;
 }
 
 #bookingForm {
@@ -210,9 +217,10 @@ select {
   margin: 25px auto 0;
   padding: 25px;
   background: white;
+  border: 1px solid #ddc7ae;
   border-radius: 12px;
   text-align: left;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 15px rgba(62, 39, 35, 0.08);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -221,20 +229,22 @@ select {
 #bookingForm label {
   font-weight: bold;
   margin-top: 5px;
+  color: #5d4037;
 }
 
 #bookingForm input,
 #bookingForm select {
   width: 100%;
   padding: 11px;
-  border: 1px solid #cbd5ce;
+  border: 1px solid #cbb49b;
   border-radius: 6px;
   background: white;
+  color: #4b3621;
 }
 
 #bookingForm input:focus,
 #bookingForm select:focus {
-  outline: 2px solid #27856c;
+  outline: 2px solid #8d6e63;
   border-color: transparent;
 }
 
@@ -262,24 +272,24 @@ table {
 
 th,
 td {
-  border: 1px solid #dce4de;
+  border: 1px solid #dfd0bf;
   padding: 12px;
   text-align: center;
 }
 
 th {
   color: white;
-  background: #245b4d;
+  background: #5d4037;
 }
 
 tbody tr:nth-child(even) {
-  background: #edf4ef;
+  background: #f0e5d8;
 }
 
 /* FOOTER */
 footer {
   padding: 18px;
-  background: #123c35;
+  background: #3e2723;
   color: white;
   text-align: center;
 }
